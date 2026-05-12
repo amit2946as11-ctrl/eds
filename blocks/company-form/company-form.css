@@ -1,0 +1,192 @@
+.company-form {
+    color: #050505;
+}
+
+.company-form .company-form-panel {
+    display: grid;
+    gap: 32px;
+    width: 100%;
+    margin: 0;
+}
+
+.company-form .company-form-title {
+    margin: 0;
+    font-family: var(--body-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.company-form .company-form-row {
+    display: grid;
+    gap: 10px;
+}
+
+.company-form label {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.company-form input,
+.company-form select {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+    border-radius: 0;
+    padding: 0 0 8px;
+    background-color: transparent;
+    color: #4a4a4a;
+    font: inherit;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.company-form input::placeholder {
+    color: #4a4a4a;
+    opacity: 1;
+}
+
+.company-form select {
+    appearance: none;
+    padding-right: 40px;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #050505 50%),
+        linear-gradient(135deg, #050505 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) 16px,
+        calc(100% - 12px) 16px;
+    background-size: 11px 11px, 11px 11px;
+    background-repeat: no-repeat;
+}
+
+.company-form .company-form-divider {
+    width: 100%;
+    margin: 20px 0 24px;
+    border: 0;
+    border-top: 1px solid #d6d6f0;
+}
+
+.company-form .company-form-consent {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+    color: #444;
+    font-size: 18px;
+    line-height: 1.35;
+}
+
+.company-form .company-form-consent input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.company-form .company-form-checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #20218f;
+    border-radius: 8px;
+    background-color: #20218f;
+}
+
+.company-form .company-form-checkbox::after {
+    content: '';
+    width: 13px;
+    height: 7px;
+    border: solid #fff;
+    border-width: 0 0 2px 2px;
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.company-form .company-form-consent input:not(:checked) + .company-form-checkbox {
+    background-color: transparent;
+}
+
+.company-form .company-form-consent input:not(:checked) + .company-form-checkbox::after {
+    content: none;
+}
+
+.company-form .company-form-consent input:focus-visible + .company-form-checkbox {
+    outline: 2px solid #20218f;
+    outline-offset: 4px;
+}
+
+.company-form .company-form-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.company-form button {
+    min-width: 150px;
+    min-height: 58px;
+    border: 0;
+    border-radius: 20px;
+    padding: 14px 28px;
+    background-color: #20218f;
+    color: #fff;
+    font: inherit;
+    font-size: 20px;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.company-form input:focus,
+.company-form select:focus,
+.company-form button:focus-visible {
+    outline: 2px solid #20218f;
+    outline-offset: 4px;
+}
+
+.company-form button:hover {
+    background-color: #17186f;
+}
+
+@media (width >= 900px) {
+    .company-form .company-form-panel {
+        grid-template-columns: minmax(280px, 1fr) minmax(360px, 0.8fr);
+        gap: 48px 96px;
+    }
+
+    .company-form .company-form-title,
+    .company-form .company-form-divider {
+        grid-column: 1 / -1;
+    }
+
+    .company-form .company-form-row {
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(280px, 1fr) minmax(360px, 0.8fr);
+        column-gap: 96px;
+        align-items: end;
+    }
+
+    .company-form .company-form-divider {
+        margin: 24px 0 36px;
+    }
+
+    .company-form .company-form-consent,
+    .company-form .company-form-actions {
+        grid-column: 2;
+    }
+
+    .company-form .company-form-actions {
+        justify-content: flex-end;
+        margin-top: 28px;
+    }
+}
+
+@media (width >= 1200px) {
+    .company-form .company-form-panel,
+    .company-form .company-form-row {
+        grid-template-columns: minmax(420px, 1fr) minmax(460px, 0.8fr);
+        column-gap: 160px;
+    }
+}

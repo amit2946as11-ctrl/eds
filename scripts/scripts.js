@@ -32,6 +32,19 @@ function buildHeroBlock(main) {
 }
 
 /**
+ * Adds the company form above the footer on the home page.
+ * @param {Element} main The container element
+ */
+function buildHomeCompanyForm(main) {
+  const isHomePage = window.location.pathname === '/';
+  if (!isHomePage || main.querySelector('.company-form')) return;
+
+  const section = document.createElement('div');
+  section.append(buildBlock('company-form', ''));
+  main.append(section);
+}
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
@@ -68,6 +81,7 @@ function buildAutoBlocks(main) {
     }
 
     buildHeroBlock(main);
+    buildHomeCompanyForm(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
